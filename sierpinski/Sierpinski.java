@@ -9,22 +9,27 @@ public class Sierpinski {
 		StdDraw.line(1.0, 0.0, 0.5, t);
 		StdDraw.line(0.5, t, 0.0, 0.0);
 	
-		sierpinski(N);
+		double x = 0.5, y = 0.0; // starting vertex
+		double side = 0.5;
+		sierpinski(N, x, y, side);
 	}
 
-	public static void sierpinski(int n) {	
-		double side = Math.pow(2, -n);
+	public static void sierpinski(int n, double x, double y, double side) {	
+		if (n == 0) return;
+		
 		double t = side * Math.sqrt(3.0)/2;
-		if (n == 1) triangle(side/2, t, side, t);
-		else {
-			sierpinski(n-1);`
-		}
+		
+		triangle(x, y, side);
+		sierpinski(n-1, x, y + t, side/2);
+		sierpinski(n-1, x + side/2, y, side/2);
+		sierpinski(n-1, x - side/2, y, side/2);
 	}
 
-	public static void triangle(double startX,double startY,double side,double t) {
-		double[] xd = {startX, startX + side, startX + side/2};
-		double[] yd = {startY, startY, startY - t};
-		StdDraw.filledPolygon(xd, yd);
+	public static void triangle(double startX,double startY,double side) {
+		double t = side * Math.sqrt(3.0)/2;
+		double[] xd = {startX, startX - side/2, startX + side/2};
+		double[] yd = {startY, startY + t, startY + t};
+		StdDraw.filledPolygon(xd, yd); // draw a triangle 
 	}	
 
 }
