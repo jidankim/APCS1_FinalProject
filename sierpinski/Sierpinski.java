@@ -25,7 +25,7 @@ public class Sierpinski {
 		sierpinski(N, x, y, side);
 	}
 
-	// O(n)
+	// O(3^n)
 	// pre: n >= 0, 0 <= x <= 1, 0 <= y <= 1, side <= 0.5
 	// post: draws sierpinski triangles of order n	
 	public static void sierpinski(int n, double x, double y, double side) {	
