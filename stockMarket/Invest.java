@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac Invest.java
+ *  Execution:    java Invest < stocks.txt
+ *
+ *  Creates a table that determines how much money you would have won or lost
+ *  using Dilbert's rule given $10,000.00 cash and prices given in stocks.txt
+ *
+ *  % java Invest < stock15.txt
+ *
+ ******************************************************************************/
+
 import java.util.ArrayList;
 
 public class Invest {
@@ -24,11 +35,11 @@ public class Invest {
 		// sell or buy according to Dilbert's rule
 		for (int i = 3; i < N; i++) {
 			String toDo = detect(i);
-			if (toDo.equals("buy")) {
+			if (toDo.equals("buy") && cash != 0.0) {
 				shares = cash / prices.get(i);
 				cash = 0.0;
 			}
-			if (toDo.equals("sell")) {
+			if (toDo.equals("sell") && shares != 0.0) {
 				cash = shares * prices.get(i);
 				shares = 0.0;
 			}
@@ -39,6 +50,7 @@ public class Invest {
 		}
 	}
 
+	// O(1)
 	// pre: n >= 4
         // post: String whether it should buy or sell or neither (empty)
         public static String detect(int n) {
