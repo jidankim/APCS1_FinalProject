@@ -5,7 +5,7 @@
  *  Creates a table that determines how much money you would have won or lost
  *  using Dilbert's rule given $10,000.00 cash and prices given in stocks.txt
  *
- *  % java Invest < stock15.txt
+ *  % java Invest < stock1000.txt
  *
  ******************************************************************************/
 
