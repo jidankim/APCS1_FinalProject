@@ -1,3 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac Problem1a.java
+ *  Execution:    java Problem1a N
+ *  Dependencies: Problem1Matrix.java
+ *  
+ *  Takes N from the command line and draws an  N- by-N matrix with the entry
+ *  in row i and column j set to true if i and j are relatively prime. 
+ *
+ *  % java Problem1a 10
+ *
+ ******************************************************************************/
+
 public class Problem1a extends Problem1Matrix{
 
 	public static void main(String[] args) {

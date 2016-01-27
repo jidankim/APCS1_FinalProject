@@ -1,3 +1,16 @@
+/******************************************************************************
+ *  Compilation:  javac Problem1c.java
+ *  Execution:    java Problem1c N
+ *  Dependencies: Problem1Matrix.java
+ *
+ *  Takes N from the command line and draws an N- by-N matrix such with the
+ *  entry in row N and column j set to true if the coefficient of x^k in 
+ *  (1+x)^N (binomial coefficiant) is odd.
+ *
+ *  % java Problem1c 10
+ *
+ ******************************************************************************/
+
 public class Problem1c extends Problem1Matrix{
 
 	public static void main(String[] args) {

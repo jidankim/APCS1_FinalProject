@@ -1,5 +1,19 @@
+/******************************************************************************
+ *  Compilation:  javac Problem1Matrix.java
+ *  Execution:    N/A
+ *
+ *  Superclass for all parts of problem 1 that requires printing out two-
+ *  dimensional boolean array, using * to represent true and a space to 
+ *  represent false, including row and column numbers.
+ *
+ ******************************************************************************/
+
+
 public class Problem1Matrix {
 
+	// O(N^2)
+	// pre: non-empty two-dimensional boolean array
+	// post: * to represent true and space to represent false
 	public static void printBooleanMat(boolean[][] mat) {
                 int N = mat.length;
 		StdOut.printf("        ");
