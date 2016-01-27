@@ -6,7 +6,7 @@ public class Candidate implements CampaignActions, Comparable {
   private double _supportPercentage;
 
   // constructor
-  public void Candidate(String first, String last) {
+  public void Candidate (String first, String last) {
     _firstName = first;
     _lastName = last;
     _funds = 10000000;
