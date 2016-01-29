@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Problem1c.java
  *  Execution:    java Problem1c N
- *  Dependencies: Problem1Matrix.java
+ *  Dependencies: Problem1Matrix.java StdOut.java
  *
  *  Takes N from the command line and draws an N- by-N matrix such with the
  *  entry in row N and column j set to true if the coefficient of x^k in 

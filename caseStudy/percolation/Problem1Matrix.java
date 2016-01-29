@@ -1,6 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Problem1Matrix.java
  *  Execution:    N/A
+ *  Dependencies: StdOut.java
  *
  *  Superclass for all parts of problem 1 that requires printing out two-
  *  dimensional boolean array, using * to represent true and a space to 

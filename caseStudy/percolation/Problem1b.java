@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Problem1b.java
  *  Execution:    java Problem1b N
- *  Dependencies: Problem1Matrix.java
+ *  Dependencies: Problem1Matrix.java StdOut.java
  *
  *  Takes N from the command line and draws a Hadamard matrix of order N.
  *
