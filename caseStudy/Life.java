@@ -2,34 +2,67 @@ import java.util.ArrayList;
 
 public class Life {
 
+	private static ArrayList<ArrayList<Cell>> board;
+	private static int N;
+
 	public static void main(String[] args) {
-		int N = Integer.parseInt(args[0]);
-		Cell[] board = new Cell[N];
-		for (int i = 0; i < N; i++) {
-			board[i] = new ArrayList<Cell>();
-		}		
-		StdDraw.setXscale(-1, N);
-		StdDraw.setYscale(-1. N);
-		for (int i = 0; i < N; i++)
-			for (int j = 0; j < N; j++)
-				if (checkChange(board[i].get(j)))
-					board[i].get(j).changeState();
-	}
+		N = Integer.parseInt(args[0]);
+		board = new ArrayList<ArrayList<Cell>>(N);
+		System.out.println(board);
+		random();
+		System.out.println(board);
 
-	public static void change(Cell other) {
-		int x = o(other.getXcor, other.getYcor)
-	}
-
-	public static Cell random(int N, double p) {
-		Cell[] a = new Cell[N];
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				int r = (int)Math.random();
-				if (r >= 0.5) a[i].set(j, new Alive(i, j));
-				else a[i].set(j, new Dead(i, j));
+		StdDraw.setXscale(-1, N + 1);
+		StdDraw.setYscale(-1, N + 1);
+		while (true) {
+			StdDraw.clear(StdDraw.WHITE);
+			for (ArrayList<Cell> row : board) {
+				for (Cell curr : row) { 
+					if (curr.checkChange(board)) {
+						curr.changeState(board);
+					}
+				}
 			}
+			draw();
+			StdDraw.show(1000);
 		}
-		return a;
+	}
+
+	public static void random() {
+		int i = 0, j = 0;
+		for (ArrayList<Cell> row : board) {
+			System.out.println(row);
+			for (Cell curr : row) {
+//				int x = curr.getxCor();
+//				int y = curr.getyCor();
+				int r = (int)Math.random();
+				if (r >= 0.5) {
+					board.get(i).add(new Alive(i, j));
+				} else {
+					board.get(i).add(new Dead(i, j));
+				}
+				j++;
+			}
+			System.out.println(row);
+			i++;
+		}
+	}
+
+	public static void draw() {
+		int i = 0, j = 0;
+		for (ArrayList<Cell> row : board) {
+			for (Cell curr : row) {
+				curr.draw(i, j);
+				j++;
+			}
+			i++;
+		}
+	}	
+
+	public static Cell getTile(int x, int y) {
+		if (x >= 0 && y >= 0 && x < N && y < N)
+			return board.get(x).get(y);
+		return new Dead(0,0);
 	}
 
 }

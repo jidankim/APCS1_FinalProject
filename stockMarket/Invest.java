@@ -1,6 +1,7 @@
 /******************************************************************************
  *  Compilation:  javac Invest.java
  *  Execution:    java Invest < stocks.txt
+ *  Dependencies: StdOut.java
  *
  *  Creates a table that determines how much money you would have won or lost
  *  using Dilbert's rule given $10,000.00 cash and prices given in stocks.txt
