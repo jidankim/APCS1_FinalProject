@@ -21,9 +21,12 @@ public class Life {
 	public static void main(String[] args) {
 		size = Integer.parseInt(args[0]);
 		board = new ArrayList<ArrayList<Cell>>(size);
-		System.out.println(board);
+//		System.out.println(board);
 		randomize(); // initialize with random Alive and Dead Cells	
-		System.out.println(board);
+		StdDraw.setXscale(-1, size + 1);
+		StdDraw.setYscale(-1, size + 1);
+//		System.out.println(board);
+		draw();
 	}
 	
 	// O(N^2)
@@ -54,6 +57,24 @@ public class Life {
 			j = 0;
 			i++;
 		}
+	}
+
+	public static void draw() {
+		int i = 0, j = 0;
+		for (ArrayList<Cell> row : board) {
+			for (Cell curr : row) {
+				curr.draw(i, j);
+				j++;
+			}
+			j = 0;
+			i++;
+		}
+	}
+
+	public static Cell getTile(int x, int y) {
+		if (x >= 0 && y >= 0 && x < size && y < size)
+			return board.get(x).get(y);
+		return new Dead(0,0);
 	}
 
 }

@@ -15,6 +15,12 @@ public class Alive extends Cell {
 		super(x, y);
 		state = "Alive";
 	}
+
+	public void draw(int x, int y) {
+		double[] xs = {x, x + 1.0, x + 1.0, x};
+		double[] yx = {y, y, y + 1.0, y + 1.0};
+		StdDraw.polygon(xs, yx);
+	}
 	
 	// O(1)
 	// pre: this Alive is instantiated
