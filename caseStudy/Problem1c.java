@@ -29,9 +29,9 @@ public class Problem1c extends Problem1Matrix{
 		for (int i = 2; i < N; i++) {
 			for (int j = 1; j < i; j++) { 
 				bin[i][j] = bin[i-1][j] + bin[i-1][j-1];
-				System.out.print(bin[i][j]);
+//				System.out.print(bin[i][j]);
 			}
-			System.out.println();
+//			System.out.println();
 		}
 		for (int k = 0; k < N; k++) 
 			for (int l = 0; l < N; l++)

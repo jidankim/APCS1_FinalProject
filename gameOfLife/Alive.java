@@ -26,21 +26,22 @@ public class Alive extends Cell {
 		StdDraw.polygon(xs, yx);
 	}
 
-	// O(N^2)
+	// O(1)
 	// pre: board with Cells instantiated
 	// post: whether or not this Cell should change its state
 	//       based on the states of its neighbors (including diagonals)
 	public boolean checkChange(ArrayList<ArrayList<Cell>> board) {
-                  int x = this.getxCor();
-                  int y = this.getyCor();
-                  int count = 0;
-                  for (int[] offset : NEIGHBORS) {
-                          if (Life.getTile(x + offset[1], y + offset[1]).toString().equals("Alive")) {
-                                  count++;
-                          }
-                  }
-                  if (count == 1 || count > 3) return true;
-                  return false;
+                int x = this.getxCor();
+                int y = this.getyCor();
+                int count = 0;
+                for (int[] offset : NEIGHBORS) {
+                        if (Life.getTile(x + offset[0], y + offset[1]).toString().equals("Alive")) {
+                                count++;
+                        }
+                }
+//		System.out.println("count for " + x + "," + y + " " + count);
+                if (count < 2 || count > 3) return true;
+                return false;
         }
 
 	// O(1)

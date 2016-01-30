@@ -3,6 +3,7 @@
  *  Execution:    java Life N
  *  Dependencies: StdDraw.java Cell.java Alive.java Dead.java
  *
+ *  Initializes a random board of Alive and Dead Cells. 
  *  Every second, updates a board of size N * N of Alive and Dead 
  *  Cells according to Conway’s rule on Game of Life.
  *
@@ -37,7 +38,7 @@ public class Life {
 				}
 			}
 			draw();
-			StdDraw.show(3000);
+			StdDraw.show(500);
 		}
 	}
 	
@@ -97,7 +98,7 @@ public class Life {
 	public static Cell getTile(int x, int y) {
 		if (x >= 0 && y >= 0 && x < size && y < size)
 			return board.get(x).get(y);
-		return new Dead(0,0);
+		return new Dead(-1,-1);
 	}
 
 }

@@ -22,25 +22,25 @@ public class Dead extends Cell {
 	// post: square with bottom left corner at (x,y)
 	public void draw(int x, int y) {
 		double[] xs = {x, x + 1.0, x + 1.0, x};
-		double[] yx = {y, y, y + 1.0, y + 1.0};
-		StdDraw.filledPolygon(xs, yx);
+		double[] ys = {y, y, y + 1.0, y + 1.0};
+		StdDraw.filledPolygon(xs, ys);
 	}
 
-	// O(N^2)
+	// O(1)
 	// pre: board with Cells instantiated
 	// post: whether or not this Cell should change its state
 	//       based on the states of its neighbors (including diagonals)
 	public boolean checkChange(ArrayList<ArrayList<Cell>> board) {
-                  int x = this.getxCor();
-                  int y = this.getyCor();
-                  int count = 0;
-                  for (int[] offset : NEIGHBORS) {
-                          if (Life.getTile(x + offset[1], y + offset[1]).toString().equals("Alive")) {
-                                  count++;
-                          }
-                  }
-                  if (count == 3) return true;
-                  return false;
+                int x = this.getxCor();
+                int y = this.getyCor();
+                int count = 0;
+                for (int[] offset : NEIGHBORS) {
+                        if (Life.getTile(x + offset[0], y + offset[1]).toString().equals("Alive")) {
+                                count++;
+                        }
+                }
+                if (count == 3) return true;
+                return false;
           }
 
 	// O(1)

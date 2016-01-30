@@ -15,9 +15,9 @@ public abstract class Cell {
 	protected int yCor;
 	protected String state;
 	protected static final int[][] NEIGHBORS = {
-              {-1, -1}, {-1, 0}, {-1, +1},
-              { 0, -1},          { 0, +1},
-              {+1, -1}, {+1, 0}, {+1, +1}};
+              {-1, +1}, {0, +1}, {+1, +1},
+              {-1,  0},          {+1,  0},
+              {-1, -1}, {0, -1}, {+1, -1}};
 
 	public Cell(int x, int y) {
 		xCor = x;
