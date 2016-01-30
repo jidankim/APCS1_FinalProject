@@ -59,6 +59,10 @@ public class Life {
 		}
 	}
 
+	// O(N^2)
+	// pre: static variable board should have been declared and 
+	//      initialized
+	// post: goes through and draws each Cell
 	public static void draw() {
 		int i = 0, j = 0;
 		for (ArrayList<Cell> row : board) {
@@ -71,6 +75,13 @@ public class Life {
 		}
 	}
 
+	// O(1)
+	// pre: static variable board should have been declared and 
+	//      initialized
+	// post: return Cell at position (x,y)
+	//       if not in board, returns a Dead Cell at (0,0)
+	//       because this function is used for counting Alive Cells
+	//       in the neighborhood and will effectively be null	
 	public static Cell getTile(int x, int y) {
 		if (x >= 0 && y >= 0 && x < size && y < size)
 			return board.get(x).get(y);

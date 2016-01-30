@@ -16,6 +16,9 @@ public class Dead extends Cell {
 		state = "Dead";
 	}
 
+	// O(1)
+	// pre: int 0 <= x,y < size of the board
+	// post: filled square with bottom left corner at (x,y)
 	public void draw(int x, int y) {
 		double[] xs = {x, x + 1.0, x + 1.0, x};
 		double[] yx = {y, y, y + 1.0, y + 1.0};
