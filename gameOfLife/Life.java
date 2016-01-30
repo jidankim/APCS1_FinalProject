@@ -2,39 +2,38 @@ import java.util.ArrayList;
 
 public class Life {
 
-	private static ArrayList<ArrayList<Integer>> board;
+	private static ArrayList<ArrayList<Cell>> board;
 	private static int size;
 
 	public static void main(String[] args) {
 		size = Integer.parseInt(args[0]);
-		board = new ArrayList<ArrayList<Integer>>(size);
-		for (int i = 0; i < size; i++) {
-			board.add(new ArrayList<Integer>());
-			for (int j = 0; j < size; j++) {
-				board.get(i).add(0);
-			}
-		}
+		board = new ArrayList<ArrayList<Cell>>(size);
 		System.out.println(board);
-		randomize();	
+		randomize(); // initialize with random Alive and Dead Cells	
 		System.out.println(board);
 	}
 
-	public static void randomize() {
+	public static void randomize() {	
+		// first initialize all Cells with Alive
+		// and make them into Dead randomly
+		for (int i = 0; i < size; i++) {
+			board.add(new ArrayList<Cell>());
+			for (int j = 0; j < size; j++) {
+				board.get(i).add(new Alive(i, j));
+			}
+		}
+
+		// here we randomly set some Cells to Dead
 		int i = 0, j = 0;
-		System.out.println("hi");
-		for (ArrayList<Integer> row : board) {
-			System.out.println("am i here");
-			for (Integer number : row) {
-				System.out.print("current " + number);
-				System.out.println("what about here");
+		for (ArrayList<Cell> row : board) {
+			for (Cell curr : row) {
 				double r = Math.random();
-				System.out.println(r);
 				if (r >= 0.5) {
-					board.get(i).set(j, 1);
+					board.get(i).set(j, new Dead(i, j));
 				}
-				System.out.print(j);
 				j++;
 			}
+			j = 0;
 			i++;
 		}
 	}
