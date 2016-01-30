@@ -26,6 +26,10 @@ public class Dead extends Cell {
 		StdDraw.filledPolygon(xs, yx);
 	}
 
+	// O(N^2)
+	// pre: board with Cells instantiated
+	// post: whether or not this Cell should change its state
+	//       based on the states of its neighbors (including diagonals)
 	public boolean checkChange(ArrayList<ArrayList<Cell>> board) {
                   int x = this.getxCor();
                   int y = this.getyCor();
@@ -39,6 +43,9 @@ public class Dead extends Cell {
                   return false;
           }
 
+	// O(1)
+	// pre: board instantiated with Cells
+	// post: replace this Cell with another one with opposite state
 	public void changeState(ArrayList<ArrayList<Cell>> board) {
                   int x = this.getxCor();
                   int y = this.getyCor();
