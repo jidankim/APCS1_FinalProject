@@ -7,6 +7,7 @@
  *
  ******************************************************************************/
 
+import java.util.ArrayList;
 
 public abstract class Cell {
 
@@ -25,6 +26,8 @@ public abstract class Cell {
 	}
 
 	public abstract void draw(int x, int y);
+	public abstract boolean checkChange(ArrayList<ArrayList<Cell>> b);
+	public abstract void changeState(ArrayList<ArrayList<Cell>> b);
 	public abstract int getxCor();
 	public abstract int getyCor();
 	public abstract String toString();

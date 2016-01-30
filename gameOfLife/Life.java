@@ -26,7 +26,19 @@ public class Life {
 		StdDraw.setXscale(-1, size + 1);
 		StdDraw.setYscale(-1, size + 1);
 //		System.out.println(board);
-		draw();
+		
+		while (true) {
+			StdDraw.clear(StdDraw.WHITE);
+			for (ArrayList<Cell> row : board) {
+				for (Cell curr : row) {
+					if (curr.checkChange(board)) {
+						curr.changeState(board);
+					}
+				}
+			}
+			draw();
+			StdDraw.show(3000);
+		}
 	}
 	
 	// O(N^2)
