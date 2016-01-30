@@ -1,3 +1,13 @@
+/******************************************************************************
+ *  Compilation:  javac Cell.java
+ *  Execution:    N/A
+ *  Dependencies: N/A
+ *
+ *  Abstract superclass for Alive and Dead Cells to be placed in the board.
+ *
+ ******************************************************************************/
+
+
 public abstract class Cell {
 
 	protected int xCor;
