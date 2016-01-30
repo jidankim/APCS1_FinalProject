@@ -4,7 +4,7 @@
  *  Dependencies: StdDraw.java Cell.java Alive.java Dead.java
  *
  *  Initializes a random board of Alive and Dead Cells. 
- *  Every second, updates a board of size N * N of Alive and Dead 
+ *  Every 0.5 seconds, updates a board of size N * N of Alive and Dead 
  *  Cells according to Conway’s rule on Game of Life.
  *
  *  % java Life 10
@@ -22,11 +22,9 @@ public class Life {
 	public static void main(String[] args) {
 		size = Integer.parseInt(args[0]);
 		board = new ArrayList<ArrayList<Cell>>(size);
-//		System.out.println(board);
 		randomize(); // initialize with random Alive and Dead Cells	
 		StdDraw.setXscale(-1, size + 1);
 		StdDraw.setYscale(-1, size + 1);
-//		System.out.println(board);
 		
 		while (true) {
 			StdDraw.clear(StdDraw.WHITE);

@@ -3,9 +3,20 @@
  *  Execution:    java Problem1b N
  *  Dependencies: Problem1Matrix.java StdOut.java
  *
- *  Takes N from the command line and draws a Hadamard matrix of order N.
+ *  Takes N (where N is a power of 2 ) from the command line and 
+ *  draws a Hadamard matrix of order N.
  *
- *  % java Problem1b 10
+ *  % java Problem1b 8
+ *
+ *     01234567
+ *  0	********
+ *  1	* * * * 
+ *  2	**  **  
+ *  3	*  **  *
+ *  4	****    
+ *  5	* *  * *
+ *  6	**    **
+ *  7	*  * ** 
  *
  ******************************************************************************/
 
@@ -19,7 +30,12 @@ public class Problem1b extends Problem1Matrix {
 		printBooleanMat(mat2);
 			
 	}
-
+	
+	// O(N^3)
+	// pre: 2 dimensional boolean matrix initialized to false
+	//      size of the matrix > 0
+	// post: 2 dimensional boolean Hadamard matrix of order N
+	//       where N is the size of the given matrix
 	public static void markHadamard(boolean[][] mat) {
 		int N = mat.length;
 		mat[0][0] = true;

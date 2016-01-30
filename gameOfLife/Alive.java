@@ -39,7 +39,6 @@ public class Alive extends Cell {
                                 count++;
                         }
                 }
-//		System.out.println("count for " + x + "," + y + " " + count);
                 if (count < 2 || count > 3) return true;
                 return false;
         }
